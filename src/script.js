@@ -1,0 +1,1 @@
+import pokemonArray from "../data/pokemon.js";

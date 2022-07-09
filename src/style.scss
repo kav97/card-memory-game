@@ -2,3 +2,27 @@
 @use "../styles/variables" as *;
 @use "../styles/typography" as *;
 
+body {
+    background-image: linear-gradient($color-background-primary, $color-background-secondary);
+    
+    header {
+        margin: 1rem;
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .game-rules {
+            padding: 1rem;
+            border: 1px dashed white;
+
+            li::marker {
+                list-style-position: inside;
+            }
+        }   
+    }
+
+
+
+}

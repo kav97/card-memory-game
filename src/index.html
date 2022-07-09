@@ -1,15 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Card Memory Game</title>
-</head>
-<body>
-    <h1>Matching Pairs</h1>
-    <script src="./script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Cormorant:wght@400;700&family=Inter&display=swap" rel="stylesheet">
+        <title>Card Memory Game</title>
+    </head>
+    <body>
+        <header>
+            <h1>
+                Matching Pairs
+            </h1>
+            <div class="game-rules">
+                <p>Rules of the game:</p>
+                <ul > 
+                    <li>Click start and proceed to find matching card pairs.</li>
+                    <li>Only 2 cards can be flipped at a time.</li>
+                    <li>If the two cards do not match, then they will revert back.</li>
+                    <li>The game is complete once all pairs are found.</li>
+                </ul>  
+            </div>
+        </header>
+        <main>
+            <div class="game">
+                <div class="game__control-container">
+                    <button class="start">Start</button>
+                    <button class="reset">Reset</button>
+                    <div class="stats">
+                        <div class="flips">0 Flips</div>
+                        <div class="timer">Time: 0 sec(s)</div>
+                    </div>
+                </div>
+                <div class="board-container">
+                </div>
+            </div>
+        </main>
+
+
+        <script src="./script.js"></script>
+        
+    </body>
 </html>
 

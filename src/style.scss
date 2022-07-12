@@ -4,6 +4,9 @@
 
 body {
     background-image: linear-gradient($color-background-primary, $color-background-secondary);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
     
     header {
         margin: 1rem;
@@ -14,15 +17,159 @@ body {
         }
 
         .game-rules {
-            padding: 1rem;
+            padding: 0.5rem;
             border: 1px dashed white;
-
-            li::marker {
-                list-style-position: inside;
+            
+            ul {
+                padding: 0.5rem;
             }
         }   
     }
+    
+    .game {
+        width: 80%;
+        height: fit-content;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        perspective: 1000px;
 
+        .control__container {
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 1rem;
 
+            .control__btn {
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                box-shadow: 1px 2px;
+                cursor: pointer;
+                
+                &:active {
+                    transform: scale(0.9);
+                    transition: transform .2s;
+                }
 
+                &--start {
+                    background-color: lightblue;
+                }
+
+                &--reset {
+                    background-color: lightcoral;
+                }
+            }
+        }
+
+        .board__container {
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            grid-gap: 10px;
+            height: fit-content;
+            
+            .card {
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                max-width: 200px;
+                border-radius: 3px;
+                overflow: hidden;
+
+                .card__image {
+                    transform: scale(1.25);
+                }
+
+                .card__heading {
+                    font-size: 1rem;
+                    text-align: center;
+                    font-weight: normal;
+                }
+            }
+            
+        }
+    }
 }
+
+  
+// .memory-game {
+//     width: 640px;
+//     height: 640px;
+//     margin: auto;
+//     display: flex;
+//     flex-wrap: wrap;
+//     perspective: 1000px;
+// }
+  
+// .memory-card {
+//     width: calc(25% - 10px);
+//     height: calc(33.333% - 10px);
+//     margin: 5px;
+//     position: relative;
+//     transform: scale(1);
+//     transform-style: preserve-3d;
+//     transition: transform .5s;
+//     box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+// }
+  
+// .memory-card:active {
+//     transform: scale(0.97);
+//     transition: transform .2s;
+// }
+  
+// .memory-card.flip {
+//     transform: rotateY(180deg);
+// }
+  
+// .front-face,
+// .back-face {
+//     width: 100%;
+//     height: 100%;
+//     padding: 20px;
+//     position: absolute;
+//     border-radius: 5px;
+//     background: #1C7CCC;
+//     backface-visibility: hidden;
+// }
+  
+// .front-face {
+//     transform: rotateY(180deg);
+// }
+
+
+
+
+// .card {
+//     position: relative;
+//     width: 100px;
+//     height: 100px;
+//     cursor: pointer;
+// }
+
+// .card-front,
+// .card-back {
+//     position: absolute;
+//     border-radius: 5px;
+//     width: 100%;
+//     height: 100%;
+//     background: #282A3A;
+//     transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+//     backface-visibility: hidden;
+// }
+
+// .card-back {
+//     transform: rotateY(180deg) rotateZ(50deg);
+//     font-size: 28pt;
+//     user-select: none;
+//     text-align: center;
+//     line-height: 100px;
+//     background: #FDF8E6;
+// }
+
+// .card.flipped .card-front {
+//     transform: rotateY(180deg) rotateZ(50deg);
+// }
+
+// .card.flipped .card-back {
+//     transform: rotateY(0) rotateZ(0);
+// }

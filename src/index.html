@@ -27,21 +27,29 @@
         </header>
         <main>
             <div class="game">
-                <div class="game__control-container">
-                    <button class="start">Start</button>
-                    <button class="reset">Reset</button>
-                    <div class="stats">
-                        <div class="flips">0 Flips</div>
-                        <div class="timer">Time: 0 sec(s)</div>
+                <div class="control__container">
+                    <button class="control__btn control__btn--start">
+                        Start
+                    </button>
+                    <div class="record__stats">
+                        <div class="record__flips">
+                            0 Flips
+                        </div>
+                        <div class="record__timer">
+                            Time: 0 secs
+                        </div>
                     </div>
+                    <button class="control__btn control__btn--reset">
+                        Reset
+                    </button>
                 </div>
-                <div class="board-container">
+                <div class="board__container">
                 </div>
             </div>
         </main>
 
 
-        <script src="./script.js"></script>
+        <script src="./script.js" type="module"></script>
         
     </body>
 </html>

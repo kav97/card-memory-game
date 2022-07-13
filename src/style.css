@@ -71,11 +71,17 @@ body .game .board__container {
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 800px;
+  perspective: 800px;
 }
 body .game .board__container .card {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+  transition: all 0.5s cubic-bezier(0.33, 0.23, 1, 1);
+}
+body .game .board__container .card__face,
+body .game .board__container .card__back {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -84,23 +90,18 @@ body .game .board__container .card {
   border-radius: 3px;
   overflow: hidden;
   cursor: pointer;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
-body .game .board__container .card .card__image {
+body .game .board__container .card__face .card__image,
+body .game .board__container .card__back .card__image {
   transform: scale(1);
+  height: 100%;
+  width: 100%;
 }
-body .game .board__container .card .card__heading {
-  font-size: 1.5rem;
-  text-align: center;
-  font-weight: normal;
-}
-
-@media screen and (min-width: 320px) {
-  .card__heading {
-    display: none;
-  }
-}
-@media screen and (min-width: 768px) {
-  .card__heading {
-    display: block;
-  }
+body .game .board__container .card__back {
+  background: black;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }/*# sourceMappingURL=style.css.map */

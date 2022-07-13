@@ -12,18 +12,22 @@ console.log(pokemonCard);
 //      reset button to start game again, with newly shuffled array
 //      mopves to be recorded and time recorded
 
-
-const shuffleArray = (array) => {
-    return [...array].sort(() => Math.random() - 0.5);
+//shuffle the pokemon array 
+const shuffleArray = () => {
+    return pokemonArray.sort(() => Math.random() - 0.5);
 }
 
+// append div class="card" for each SHUFFLED pokemon array
 const addPokemon = () => {
+    shuffleArray();
+
     pokemonArray.forEach(pokemon => {
         container.innerHTML += `
-        <div class="card">
-            <img src="${pokemon.sprite}" class="card__image">
-            <div class="card__content">
-                <h2 class="card__heading"> ${pokemon.name} </h2>
+        <div class="card" id="${pokemon.id}">
+            <div class="card__face">
+                <img src="${pokemon.sprite}" class="card__image">
+            </div>
+            <div class="card__back">
             </div>
         </div>`; 
     });

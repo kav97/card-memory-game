@@ -7,9 +7,19 @@
 h1 {
   font-family: "Bungee Shade", "Cormorant", sans-serif;
   font-size: 2rem;
+  color: white;
 }
 
 .game-rules {
+  font-family: "Inter";
+  font-size: 0.75rem;
+}
+
+.control__container {
+  font-family: "Inter";
+}
+
+button {
   font-family: "Inter";
   font-size: 0.75rem;
 }
@@ -39,11 +49,84 @@ h1 {
     height: 819.19px;
   }
 }
-body {
-  background-image: linear-gradient(#4568dc, #b06ab3);
-  height: 100vh;
+.game {
+  width: 80%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
   display: flex;
   flex-direction: column;
+  perspective: 1000px;
+}
+.game .control__container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+}
+.game .control__container .record__stats {
+  color: white;
+}
+.game .control__container .control__btn {
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 2px;
+  cursor: pointer;
+}
+.game .control__container .control__btn:active {
+  transform: scale(0.9);
+  transition: transform 0.2s;
+}
+.game .control__container .control__btn--start {
+  background-color: lightblue;
+}
+.game .control__container .control__btn--reset {
+  background-color: lightcoral;
+}
+.game .board__container {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+}
+.game .board__container .card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.5s cubic-bezier(0.33, 0.23, 1, 1);
+}
+.game .board__container .card__face,
+.game .board__container .card__back {
+  height: 100%;
+  width: 100%;
+  background-color: pink;
+  padding: 5px;
+  border-radius: 3px;
+  overflow: hidden;
+  position: absolute;
+  cursor: pointer;
+  pointer-events: none;
+}
+.game .board__container .card__face .card__image,
+.game .board__container .card__back .card__image {
+  transform: scale(1);
+  height: 100%;
+  width: 100%;
+}
+.game .board__container .card__back {
+  background: rgb(44, 41, 94);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.game .board__container .toggleCard {
+  transform: rotateY(180deg);
+}
+
+body {
+  background-image: linear-gradient(#4568dc, #b06ab3);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
 }
 body header {
   margin: 1rem;
@@ -54,77 +137,10 @@ body header h1 {
 }
 body header .game-rules {
   padding: 0.5rem;
-  border: 1px dashed white;
+  border: 5px dashed lightcoral;
+  border-radius: 10px;
+  background-color: beige;
 }
 body header .game-rules ul {
   padding: 0.5rem;
-}
-body .game {
-  width: 80%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  perspective: 1000px;
-}
-body .game .control__container {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 1rem;
-}
-body .game .control__container .control__btn {
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 1px 2px;
-  cursor: pointer;
-}
-body .game .control__container .control__btn:active {
-  transform: scale(0.9);
-  transition: transform 0.2s;
-}
-body .game .control__container .control__btn--start {
-  background-color: lightblue;
-}
-body .game .control__container .control__btn--reset {
-  background-color: lightcoral;
-}
-body .game .board__container {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-gap: 10px;
-}
-body .game .board__container .card {
-  position: relative;
-  transform-style: preserve-3d;
-  transition: all 0.5s cubic-bezier(0.33, 0.23, 1, 1);
-}
-body .game .board__container .card__face,
-body .game .board__container .card__back {
-  height: 100%;
-  width: 100%;
-  background-color: white;
-  padding: 5px;
-  border-radius: 3px;
-  overflow: hidden;
-  position: absolute;
-  cursor: pointer;
-  pointer-events: none;
-}
-body .game .board__container .card__face .card__image,
-body .game .board__container .card__back .card__image {
-  transform: scale(1);
-  height: 100%;
-  width: 100%;
-}
-body .game .board__container .card__back {
-  background: black;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-}
-body .game .board__container .toggleCard {
-  transform: rotateY(180deg);
 }/*# sourceMappingURL=style.css.map */

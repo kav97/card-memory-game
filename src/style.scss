@@ -2,12 +2,13 @@
 @use "../styles/variables" as *;
 @use "../styles/typography" as *;
 @use "../styles/media-queries" as *;
+@use "../styles/game-style" as *;
 
 body {
     background-image: linear-gradient($color-background-primary, $color-background-secondary);
-    height: 100vh;
     display: flex;
     flex-direction: column;
+    margin-bottom: 2rem;
     
     header {
         margin: 1rem;
@@ -19,90 +20,14 @@ body {
 
         .game-rules {
             padding: 0.5rem;
-            border: 1px dashed white;
+            border: 5px dashed $color-border;
+            border-radius: 10px;
+            background-color: $color-rules;
             
             ul {
                 padding: 0.5rem;
             }
         }   
-    }
-    
-    .game {
-        width: 80%;
-        height: fit-content;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        perspective: 1000px;
-
-        .control__container {
-            display: flex;
-            justify-content: space-evenly;
-            margin-bottom: 1rem;
-
-            .control__btn {
-                color: white;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                box-shadow: 1px 2px;
-                cursor: pointer;
-                
-                &:active {
-                    transform: scale(0.9);
-                    transition: transform .2s;
-                }
-
-                &--start {
-                    background-color: lightblue;
-                }
-
-                &--reset {
-                    background-color: lightcoral;
-                }
-            }
-        }
-
-        .board__container {
-            display: grid;
-            grid-template-columns: repeat(4, auto);
-            grid-gap: 10px;
- 
-            .card {
-                position:relative;
-                transform-style: preserve-3d;
-                transition: all 0.5s cubic-bezier(0.33, 0.23, 1, 1);
-            }
-
-            .card__face,
-            .card__back {
-                height: 100%;
-                width: 100%;
-                background-color: white;
-                padding: 5px;
-                border-radius: 3px;
-                overflow: hidden;
-                position: absolute;
-                cursor: pointer;
-                pointer-events: none;
-
-                .card__image {
-                    transform: scale(1);
-                    height: 100%;
-                    width: 100%;
-                }
-            }
-
-            .card__back {
-                background: black;
-                backface-visibility: hidden;
-            }
-
-            .toggleCard {
-                transform: rotateY(180deg);
-            }
-
-        }
     }
 }
 

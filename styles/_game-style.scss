@@ -1,0 +1,83 @@
+@use "./variables" as *;
+
+.game {
+    width: 80%;
+    height: fit-content;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    perspective: 1000px;
+
+    .control__container {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 1rem;
+
+        .record__stats {
+            color: $color-text-primary;
+        }
+
+        .control__btn {
+            color: $button-color;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 1px 2px;
+            cursor: pointer;
+            
+            &:active {
+                transform: scale(0.9);
+                transition: transform .2s;
+            }
+
+            &--start {
+                background-color: $start-button;
+            }
+
+            &--reset {
+                background-color: $reset-button;
+            }
+        }
+    }
+
+    .board__container {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-gap: 10px;
+
+        .card {
+            position:relative;
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.33, 0.23, 1, 1);
+        }
+
+        .card__face,
+        .card__back {
+            height: 100%;
+            width: 100%;
+            background-color: $card-face-color;
+            padding: 5px;
+            border-radius: 3px;
+            overflow: hidden;
+            position: absolute;
+            cursor: pointer;
+            pointer-events: none;
+
+            .card__image {
+                transform: scale(1);
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .card__back {
+            background: $card-back-color;
+            backface-visibility: hidden;
+        }
+
+        .toggleCard {
+            transform: rotateY(180deg);
+        }
+
+    }
+}

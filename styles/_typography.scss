@@ -1,6 +1,8 @@
+@use "./variables" as *;
 h1 {
     font-family: 'Bungee Shade', 'Cormorant', sans-serif;
     font-size: 2rem;
+    color: $color-title;
 }
 
 .game-rules {
@@ -8,3 +10,11 @@ h1 {
     font-size: 0.75rem;
 }
 
+.control__container {
+    font-family: 'Inter';
+}
+
+button {
+    font-family: 'Inter';
+    font-size: 0.75rem;
+}

@@ -2,8 +2,6 @@ import { pokemonArray } from "../data/pokemon.js";
 
 // query selectors - for all aspects that need updates
 const container = document.querySelector(".board__container");
-const pokemonCard = document.querySelectorAll(".card");
-console.log(pokemonCard);
 // global variables
 
 // functions - DRY, does 1 thing, meaningful names
@@ -30,6 +28,13 @@ const addPokemon = () => {
             <div class="card__back">
             </div>
         </div>`; 
+    });        
+    
+    const getPokemonCard = document.querySelectorAll(".card");
+    getPokemonCard.forEach(card => {
+        card.addEventListener("click", (event) =>{
+            card.classList.toggle("toggleCard")
+        });
     });
 };
 

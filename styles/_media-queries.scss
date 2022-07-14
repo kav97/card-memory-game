@@ -1,0 +1,29 @@
+@media screen and (min-width: 320px) {
+    .board__container {
+        height: 256px
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .board__container {
+        height: 300px
+    }
+}
+
+@media screen and (min-width: 425px) {
+    .board__container {
+        height: 340px
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .board__container {
+        height: 614.39px
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .board__container {
+        height: 819.19px
+    }
+}

@@ -1,11 +1,9 @@
 import { pokemonArray } from "../data/pokemon.js";
 
-// query selectors - for all aspects that need updates
 const container = document.querySelector(".board__container");
-// global variables
+// const resetButton = document.querySelector("#reset");
 
-// functions - DRY, does 1 thing, meaningful names
-//      cards to flip when clicked
+// TODO: functions 
 //      button/ click on card to start game
 //      reset button to start game again, with newly shuffled array
 //      mopves to be recorded and time recorded
@@ -15,10 +13,11 @@ const shuffleArray = () => {
     return pokemonArray.sort(() => Math.random() - 0.5);
 }
 
-// append div class="card" for each SHUFFLED pokemon array
-const addPokemon = () => {
+//create game with 
+const generateGame = () => {
     shuffleArray();
 
+    // append div class="card" for each SHUFFLED pokemon array
     pokemonArray.forEach(pokemon => {
         container.innerHTML += `
         <div class="card" id="${pokemon.id}">
@@ -43,10 +42,9 @@ const addPokemon = () => {
 const checkCard = (event) => {
     const clickedCard = event.target;
     clickedCard.classList.add("flipped");
-    //console.log(clickedCard); 
     const flippedCards = document.querySelectorAll(".flipped");
     
-    //logic
+    //check 2 clicked cards for match using their id 
     if(flippedCards.length === 2) {
         if(flippedCards[0].getAttribute("id") === flippedCards[1].getAttribute("id")) {
             console.log("match");
@@ -59,12 +57,11 @@ const checkCard = (event) => {
             console.log("not a match");
             flippedCards.forEach((card) => {
                 card.classList.remove("flipped");
-                setTimeout(() => card.classList.remove("toggleCard"), 500);
+                setTimeout(() => card.classList.remove("toggleCard"), 1000);
             })
         }
     }
-
 }
 
+generateGame()
 // event listeners - listen out for changes to page and updates using code.
-container.addEventListener("load", addPokemon());

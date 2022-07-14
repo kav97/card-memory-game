@@ -14,6 +14,31 @@ h1 {
   font-size: 0.75rem;
 }
 
+@media screen and (min-width: 320px) {
+  .board__container {
+    height: 256px;
+  }
+}
+@media screen and (min-width: 375px) {
+  .board__container {
+    height: 300px;
+  }
+}
+@media screen and (min-width: 425px) {
+  .board__container {
+    height: 340px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .board__container {
+    height: 614.39px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .board__container {
+    height: 819.19px;
+  }
+}
 body {
   background-image: linear-gradient(#4568dc, #b06ab3);
   height: 100vh;
@@ -71,8 +96,6 @@ body .game .board__container {
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
-  height: 800px;
-  perspective: 800px;
 }
 body .game .board__container .card {
   position: relative;
@@ -81,17 +104,15 @@ body .game .board__container .card {
 }
 body .game .board__container .card__face,
 body .game .board__container .card__back {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  height: 100%;
+  width: 100%;
   background-color: white;
   padding: 5px;
   border-radius: 3px;
   overflow: hidden;
-  cursor: pointer;
   position: absolute;
-  height: 100%;
-  width: 100%;
+  cursor: pointer;
+  pointer-events: none;
 }
 body .game .board__container .card__face .card__image,
 body .game .board__container .card__back .card__image {

@@ -7,7 +7,7 @@
 h1 {
   font-family: "Bungee Shade", "Cormorant", sans-serif;
   font-size: 2rem;
-  color: white;
+  color: skyblue;
 }
 
 .game-rules {
@@ -65,7 +65,10 @@ button {
   margin-bottom: 1rem;
 }
 .game .control__container .record__stats {
-  color: white;
+  padding: 0.1rem;
+  border: 2px dashed lightcoral;
+  border-radius: 4px;
+  background-color: beige;
 }
 .game .control__container .control__btn {
   color: white;
@@ -99,7 +102,7 @@ button {
 .game .board__container .card__back {
   height: 100%;
   width: 100%;
-  background-color: pink;
+  background-color: lightcoral;
   padding: 5px;
   border-radius: 3px;
   overflow: hidden;
@@ -114,7 +117,7 @@ button {
   width: 100%;
 }
 .game .board__container .card__back {
-  background: rgb(44, 41, 94);
+  background: lightblue;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
@@ -122,25 +125,30 @@ button {
   transform: rotateY(180deg);
 }
 
-body {
-  background-image: linear-gradient(#4568dc, #b06ab3);
+header {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
-}
-body header {
+  align-items: center;
   margin: 1rem;
 }
-body header h1 {
+header h1 {
   text-align: center;
   margin-bottom: 2rem;
 }
-body header .game-rules {
+header .game-rules {
+  width: 80%;
   padding: 0.5rem;
   border: 5px dashed lightcoral;
   border-radius: 10px;
   background-color: beige;
 }
-body header .game-rules ul {
+header .game-rules ul {
   padding: 0.5rem;
+}
+
+body {
+  background-image: linear-gradient(#FFEFC0, #FFBADE);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
 }/*# sourceMappingURL=style.css.map */

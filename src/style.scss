@@ -3,31 +3,12 @@
 @use "../styles/typography" as *;
 @use "../styles/media-queries" as *;
 @use "../styles/game-style" as *;
+@use "../styles/header" as *;
 
 body {
     background-image: linear-gradient($color-background-primary, $color-background-secondary);
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
-    
-    header {
-        margin: 1rem;
-
-        h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .game-rules {
-            padding: 0.5rem;
-            border: 5px dashed $color-border;
-            border-radius: 10px;
-            background-color: $color-rules;
-            
-            ul {
-                padding: 0.5rem;
-            }
-        }   
-    }
+    margin-bottom: 2rem;  
 }
 

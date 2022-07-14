@@ -72,7 +72,6 @@ body {
             .card {
                 position:relative;
                 transform-style: preserve-3d;
-                transform: rotateY(180deg);
                 transition: all 0.5s cubic-bezier(0.33, 0.23, 1, 1);
             }
 
@@ -100,6 +99,10 @@ body {
             .card__back {
                 background: black;
                 backface-visibility: hidden;
+            }
+
+            .toggleCard {
+                transform: rotateY(180deg);
             }
 
         }

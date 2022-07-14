@@ -32,11 +32,39 @@ const addPokemon = () => {
     
     const getPokemonCard = document.querySelectorAll(".card");
     getPokemonCard.forEach(card => {
-        card.addEventListener("click", (event) =>{
-            card.classList.toggle("toggleCard")
+        card.addEventListener("click", (event) => {
+            card.classList.toggle("toggleCard");
+            checkCard(event);
         });
     });
 };
+
+//Check cards that are clicked
+const checkCard = (event) => {
+    const clickedCard = event.target;
+    clickedCard.classList.add("flipped");
+    //console.log(clickedCard); 
+    const flippedCards = document.querySelectorAll(".flipped");
+    
+    //logic
+    if(flippedCards.length === 2) {
+        if(flippedCards[0].getAttribute("id") === flippedCards[1].getAttribute("id")) {
+            console.log("match");
+            flippedCards.forEach((card) => {
+                card.classList.remove("flipped");
+                card.style.pointerEvents = "none";
+            });
+
+        } else {
+            console.log("not a match");
+            flippedCards.forEach((card) => {
+                card.classList.remove("flipped");
+                setTimeout(() => card.classList.remove("toggleCard"), 500);
+            })
+        }
+    }
+
+}
 
 // event listeners - listen out for changes to page and updates using code.
 container.addEventListener("load", addPokemon());

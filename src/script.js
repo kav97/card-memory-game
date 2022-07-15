@@ -17,6 +17,7 @@ const state = {
 
 // TODO: functions 
 //      shouldnt be able to first card back, manually
+//      functions need to be split up - too many nested if statements
 
 //shuffle the pokemon array 
 const shuffleArray = () => {
@@ -58,6 +59,10 @@ const checkCard = (event) => {
     
     state.totalFlips++;
 
+    if (!state.hasGameStarted) {
+        startGame();
+    }
+
     //check 2 clicked cards for match using their id 
     if(flippedCards.length === 2) {
         //if there is matches, remove flipped class and you cannot click on card again
@@ -87,5 +92,22 @@ const checkCard = (event) => {
     }
 };
 
-generateGame()
-// event listeners - listen out for changes to page and updates using code.
+const startGame = () => {
+    selectors.start.style.pointerEvents = "none";
+    state.hasGameStarted = true;
+    generateGame();
+    
+    state.loop = setInterval(() => {
+        state.totalTime++
+
+        selectors.moves.innerText = `#Flips: ${state.totalFlips}`
+        selectors.timer.innerText = `Time: ${state.totalTime} secs`
+    }, 1000)
+}
+
+const resetGame = () => {
+    location.reload();
+} 
+
+selectors.reset.addEventListener("click", resetGame);
+selectors.start.addEventListener("click", startGame);

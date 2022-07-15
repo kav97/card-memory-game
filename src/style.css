@@ -18,8 +18,10 @@ h1 {
 .control__container {
   font-family: "Inter";
 }
-
-button {
+.control__container .record__stats {
+  font-size: 0.75rem;
+}
+.control__container button {
   font-family: "Inter";
   font-size: 0.75rem;
 }
@@ -43,10 +45,22 @@ button {
   .board__container {
     height: 614.39px;
   }
+  .control__container {
+    justify-content: space-evenly;
+  }
+  .control__container .record__stats {
+    font-size: 1rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .board__container {
     height: 819.19px;
+  }
+  .control__container {
+    justify-content: space-evenly;
+  }
+  .control__container .record__stats {
+    font-size: 1rem;
   }
 }
 .game {
@@ -61,11 +75,11 @@ button {
 }
 .game .control__container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-bottom: 1rem;
 }
 .game .control__container .record__stats {
-  padding: 0.1rem;
+  padding: 0.5rem;
   border: 2px dashed lightcoral;
   border-radius: 4px;
   background-color: beige;
@@ -121,7 +135,7 @@ button {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
-.game .board__container .toggleCard {
+.game .board__container .card__toggle {
   transform: rotateY(180deg);
 }
 

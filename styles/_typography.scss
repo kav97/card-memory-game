@@ -12,9 +12,13 @@ h1 {
 
 .control__container {
     font-family: 'Inter';
-}
+    
+    .record__stats{
+        font-size: 0.75rem;
+    }
 
-button {
+    button {
     font-family: 'Inter';
     font-size: 0.75rem;
+    }
 }

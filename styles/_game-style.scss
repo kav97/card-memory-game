@@ -10,11 +10,11 @@
 
     .control__container {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         margin-bottom: 1rem;
 
         .record__stats {
-            padding: 0.1rem;
+            padding: 0.5rem;
             border: 2px dashed $color-border;
             border-radius: 4px;
             background-color: $color-rules
@@ -78,9 +78,8 @@
             backface-visibility: hidden;
         }
 
-        .toggleCard {
+        .card__toggle {
             transform: rotateY(180deg);
         }
-
     }
 }

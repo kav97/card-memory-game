@@ -1,12 +1,21 @@
 import { pokemonArray } from "../data/pokemon.js";
 
-const container = document.querySelector(".board__container");
-// const resetButton = document.querySelector("#reset");
+const selectors = {
+    container: document.querySelector('.board__container'),
+    moves: document.querySelector('.record__flips'),
+    timer: document.querySelector('.record__timer'),
+    start: document.querySelector('#start'),
+    reset: document.querySelector('#reset'),
+}
+
+const state = {
+    hasGameStarted: false,
+    totalFlips: 0,
+    totalTime: 0,
+    loop: null,
+}
 
 // TODO: functions 
-//      button/ click on card to start game
-//      reset button to start game again, with newly shuffled array
-//      mopves to be recorded and time recorded
 //      shouldnt be able to first card back, manually
 
 //shuffle the pokemon array 
@@ -20,7 +29,7 @@ const generateGame = () => {
 
     // append div class="card" for each SHUFFLED pokemon array
     pokemonArray.forEach(pokemon => {
-        container.innerHTML += `
+        selectors.container.innerHTML += `
         <div class="card" id="${pokemon.id}">
             <div class="card__face">
                 <img src="${pokemon.sprite}" class="card__image">
@@ -30,11 +39,11 @@ const generateGame = () => {
         </div>`; 
     });        
     
-    // for each card clicked, toggleCard class needs added to replicate animation from css
+    // for each card clicked, card__toggle class needs added to replicate flip animation from css
     const getPokemonCard = document.querySelectorAll(".card");
     getPokemonCard.forEach(card => {
         card.addEventListener("click", (event) => {
-            card.classList.toggle("toggleCard");
+            card.classList.toggle("card__toggle");
             checkCard(event);
         });
     });
@@ -45,7 +54,7 @@ const checkCard = (event) => {
     const clickedCard = event.target;
     clickedCard.classList.add("flipped");
     const flippedCards = document.querySelectorAll(".flipped");
-    
+
     //check 2 clicked cards for match using their id 
     if(flippedCards.length === 2) {
         //if there is matches, remove flipped class and you cannot click on card again
@@ -55,15 +64,15 @@ const checkCard = (event) => {
                 card.classList.remove("flipped");
                 card.style.pointerEvents = "none";
             });
-            //else remove flipped class AND toggleCard 
+            //else remove flipped class AND card__toggle 
         } else {
             console.log("not a match");
             flippedCards.forEach((card) => {
                 card.classList.remove("flipped");
-                setTimeout(() => card.classList.remove("toggleCard"), 1000);
+                setTimeout(() => card.classList.remove("card__toggle"), 1000);
             });
         };
-    };
+    }
 };
 
 generateGame()

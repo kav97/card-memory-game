@@ -54,6 +54,9 @@ const checkCard = (event) => {
     const clickedCard = event.target;
     clickedCard.classList.add("flipped");
     const flippedCards = document.querySelectorAll(".flipped");
+    const toggleCard = document.querySelectorAll(".card__toggle");
+    
+    state.totalFlips++;
 
     //check 2 clicked cards for match using their id 
     if(flippedCards.length === 2) {
@@ -72,6 +75,15 @@ const checkCard = (event) => {
                 setTimeout(() => card.classList.remove("card__toggle"), 1000);
             });
         };
+    }
+
+    // If there are no more cards that we can flip, we won the game
+    if (toggleCard.length === pokemonArray.length) {
+        setTimeout(() => {
+            alert(`You won in ${state.totalTime} seconds with ${state.totalFlips} moves! Way to go!`);
+
+            clearInterval(state.loop);
+        }, 1000)
     }
 };
 

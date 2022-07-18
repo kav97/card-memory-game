@@ -15,10 +15,6 @@ const state = {
     loop: null,
 }
 
-// TODO: functions 
-//      shouldnt be able to first card back, manually
-//      functions need to be split up - too many nested if statements
-
 //shuffle the pokemon array 
 const shuffleArray = () => {
     return pokemonArray.sort(() => Math.random() - 0.5);
@@ -61,35 +57,29 @@ const checkCard = (event) => {
 
     if (!state.hasGameStarted) {
         startGame();
-    }
+    };
 
     //check 2 clicked cards for match using their id 
     if(flippedCards.length === 2) {
         //if there is matches, remove flipped class and you cannot click on card again
         if(flippedCards[0].getAttribute("id") === flippedCards[1].getAttribute("id")) {
-            console.log("match");
             flippedCards.forEach((card) => {
                 card.classList.remove("flipped");
                 card.style.pointerEvents = "none";
             });
             //else remove flipped class AND card__toggle 
         } else {
-            console.log("not a match");
             flippedCards.forEach((card) => {
                 card.classList.remove("flipped");
                 setTimeout(() => card.classList.remove("card__toggle"), 1000);
             });
         };
-    }
+    };
 
     // If there are no more cards that we can flip, we won the game
     if (toggleCard.length === pokemonArray.length) {
-        setTimeout(() => {
-            alert(`You won in ${state.totalTime} seconds with ${state.totalFlips} moves! Way to go!`);
-
-            clearInterval(state.loop);
-        }, 1000)
-    }
+        endGame()
+    };
 };
 
 const startGame = () => {
@@ -103,11 +93,19 @@ const startGame = () => {
         selectors.moves.innerText = `#Flips: ${state.totalFlips}`
         selectors.timer.innerText = `Time: ${state.totalTime} secs`
     }, 1000)
-}
+};
+
+const endGame = () => {
+    setTimeout(() => {
+        alert(`You won in ${state.totalTime} seconds with ${state.totalFlips} moves! Way to go!`);
+
+        clearInterval(state.loop);
+    }, 1000);
+};
 
 const resetGame = () => {
     location.reload();
-} 
+};
 
 selectors.reset.addEventListener("click", resetGame);
 selectors.start.addEventListener("click", startGame);
